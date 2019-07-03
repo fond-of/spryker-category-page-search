@@ -27,7 +27,8 @@ class CategoryNodeDataPageMapBuilder extends SprykerCategoryNodeDataPageMapBuild
             ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($localeTransfer->getLocaleName())
             ->setType(static::TYPE_CATEGORY)
-            ->setIsActive($categoryData['spy_category']['is_active'] && $categoryData['spy_category']['is_searchable']);
+            ->setIsActive($categoryData['spy_category']['is_active'] && $categoryData['spy_category']['is_searchable'])
+            ->setCategoryId($categoryData['fk_category']);
 
         $categoryAttribute = $categoryData['spy_category']['spy_category_attributes'][0];
 
