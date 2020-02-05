@@ -25,7 +25,7 @@ class CategoryIdPageMapExpanderPlugin extends AbstractPlugin implements Category
      */
     public function expandCategoryPageMap(PageMapTransfer $pageMapTransfer, PageMapBuilderInterface $pageMapBuilder, array $categoryData, LocaleTransfer $localeTransfer): PageMapTransfer
     {
-        if (isset($cateoryData[self::FK_CATEGORY])) {
+        if (isset($categoryData[self::FK_CATEGORY])) {
             $pageMapTransfer->setCategoryId($categoryData[self::FK_CATEGORY]);
 
             $this->setFullTextSearch($pageMapTransfer, $pageMapBuilder, $categoryData);

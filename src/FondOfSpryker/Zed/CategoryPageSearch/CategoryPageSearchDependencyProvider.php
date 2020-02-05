@@ -44,7 +44,6 @@ class CategoryPageSearchDependencyProvider extends SprykerCategoryPageSearchDepe
      */
     protected function addCategoryPageMapExpanderPlugins(Container $container): Container
     {
-
         $container[self::PLUGIN_COLLECTION_CATEGORY_PAGE_MAP_EXPANDER] = function (Container $container) {
             return $this->getCategoryPageMapExpanderPlugins();
         };
