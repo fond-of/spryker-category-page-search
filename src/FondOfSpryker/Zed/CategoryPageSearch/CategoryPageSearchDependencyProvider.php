@@ -34,7 +34,7 @@ class CategoryPageSearchDependencyProvider extends SprykerCategoryPageSearchDepe
      */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
-        parent::provideCommunicationLayerDependencies($container);
+        return parent::provideCommunicationLayerDependencies($container);
     }
 
     /**
