@@ -2,18 +2,16 @@
 
 namespace FondOfSpryker\Zed\CategoryPageSearch\Communication;
 
-use FondOfSpryker\Zed\CategoryPageSearch\Communication\Plugin\PageMapExpander\CategoryIdPageMapExpanderPlugin;
+use FondOfSpryker\Zed\CategoryPageSearch\CategoryPageSearchDependencyProvider;
 use Spryker\Zed\CategoryPageSearch\Communication\CategoryPageSearchCommunicationFactory as SprykerCategoryPageSearchCommunicationFactory;
 
 class CategoryPageSearchCommunicationFactory extends SprykerCategoryPageSearchCommunicationFactory
 {
     /**
-     * @return \FondOfSpryker\Zed\CategoryPageSearch\Dependency\Plugin\CategoryPageMapExpanderInterface[];
+     * @return array
      */
     public function getCategoryPageMapExpanderPlugins(): array
     {
-        return [
-            new CategoryIdPageMapExpanderPlugin(),
-        ];
+        return $this->getProvidedDependency(CategoryPageSearchDependencyProvider::PLUGIN_COLLECTION_CATEGORY_PAGE_MAP_EXPANDER);
     }
 }

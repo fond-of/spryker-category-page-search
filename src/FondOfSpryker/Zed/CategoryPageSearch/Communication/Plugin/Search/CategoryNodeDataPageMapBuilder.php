@@ -4,7 +4,6 @@ namespace FondOfSpryker\Zed\CategoryPageSearch\Communication\Plugin\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
-use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\CategoryPageSearch\Communication\Plugin\Search\CategoryNodeDataPageMapBuilder as SprykerCategoryNodeDataPageMapBuilder;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
@@ -24,7 +23,7 @@ class CategoryNodeDataPageMapBuilder extends SprykerCategoryNodeDataPageMapBuild
     public function buildPageMap(PageMapBuilderInterface $pageMapBuilder, array $categoryData, LocaleTransfer $localeTransfer)
     {
         $pageMapTransfer = (new PageMapTransfer())
-            ->setStore(Store::getInstance()->getStoreName())
+            ->setStore($this->getFactory()->getStoreFacade()->getCurrentStore()->getName())
             ->setLocale($localeTransfer->getLocaleName())
             ->setType(static::TYPE_CATEGORY)
             ->setIsActive($categoryData['spy_category']['is_active'] && $categoryData['spy_category']['is_searchable'])
